@@ -34,4 +34,51 @@ html {
 
   /* Main CSS starts here */
 
+:root {
+  --color1: #075BAF;
+  --color2: #2F8AE5;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  background-color: var(--color1);
+  width: 100%;
+  top: 0;
+}
+  
+nav {
+  align-self: flex-end;
+}
+
+nav a{
+  color: var(--color2);
+  text-decoration: none;
+  font-size: 1.5em ;
+  padding: 10px;
+
+}
+
+#page-title {
+  background-color: var(--color2) ;
+  margin: 1rem;
+  padding: 0.4rem 0.8rem 0.4rem 3rem;
+  border-radius: 0.4rem;
+  margin-left: auto;
+  margin-right: -0.2em;
+}
+
+#page-title h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 3.5em;
+}
+
+main {
+
+  /* margin-top: 7rem; */
+}
+
 
