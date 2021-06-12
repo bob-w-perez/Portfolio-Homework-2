@@ -1,3 +1,4 @@
+/* font size adjustments copied from https://css-tricks.com/rems-ems/ */
 /* Document level adjustments */
 html {
     font-size: 16px;
@@ -30,3 +31,7 @@ html {
   h3 {
     font-size: 2em;
   }
+
+  /* Main CSS starts here */
+
+
