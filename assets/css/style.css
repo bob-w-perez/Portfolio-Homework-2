@@ -319,7 +319,7 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   left: 0;
   background-color: var(--color1);
   opacity: 0.3; 
-  transition: all 0.5s linear; 
+  transition: all 0.4s linear; 
   z-index: -1; 
 }
 
@@ -331,11 +331,19 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 .card-info {
   background-color: var(--color-wb);
+  border-right: 0.1em solid var(--color1);
+  border-top: 0.1em solid var(--color1);
+  border-bottom: 0.1em solid var(--color1);
+  padding: 0.1em 0.5em;
+  
   font-size: 2em;
   color: var(--color1);
   position: absolute;
   bottom: 1em;
   left: 0;
+}
+.card-info p {
+  font-size: 0.9em;
 }
 
 
@@ -353,9 +361,6 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
  
 
 
-.first-card:hover::before {
-  opacity: 0;    
-}
 
 #second-card {
   background-image: url('../images/card2.jpg');
@@ -459,10 +464,7 @@ footer{
   }
 
 
-  #test {
-    width: 100%;
-    background-color: orange;
-  }
+
   /* adjust scroll-padding-top for media queries*/
 
   @media screen and (min-width: 768px) {
@@ -530,9 +532,6 @@ html {
       scroll-padding-top: 8em ;
     }
 
-    #page-title h1 {
-      color: green;
-  }
 
     #contact-me-cont .section-contents {
       align-self: flex-end;
@@ -576,8 +575,10 @@ html {
   /*added extra media query for super small (<500px)*/
 
   @media screen and (max-width: 480px) {
-    #page-title h1 {
-      color: green;
+  
+
+  html {
+    scroll-padding-top: 11em ;
   }
     nav a {
       text-align: center;
