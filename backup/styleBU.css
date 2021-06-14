@@ -37,7 +37,7 @@ html {
 
 /* offsets for sticky header when using in-page links */
 html {
-  scroll-padding-top: 9em ;
+  scroll-padding-top: 7em ;
 }
 
 
@@ -47,7 +47,7 @@ body {
 
 header {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row;
   position: sticky;
   z-index: 5;
   background-color: var(--color1);
@@ -64,7 +64,7 @@ h1 {
 h2 {
   font-family: Courier monospace;
   font-variant: small-caps;
-  font-size: 2.5em;
+  font-size: 2em;
 
 }
 
@@ -82,13 +82,9 @@ p {
 }
   
 nav {
-  align-self: flex-start;
+  align-self: flex-end;
   margin-bottom: 0em;
   margin-left: 1em;
-  display: flex;
-  flex-direction: row;
-  font-size: 0.9em;
-
 }
 
 
@@ -127,17 +123,14 @@ nav a:hover {
 main {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 5fr;
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 1.5rem;
   grid-template-areas:
-    "subheader"
-    "about-me-title"
-    "about-me-cont"
-    "my-work-title"
-    "my-work-cont"
-    "contact-me-title"
-    "contact-me-cont";
+    "subheader subheader"
+    "about-me-title about-me-cont"
+    "my-work-title my-work-cont"
+    "contact-me-title contact-me-cont";
 
 }
 
@@ -152,22 +145,13 @@ main section {
   margin-right: 1em;
   padding-right: 1em;
   color: var(--color1);
-  border-bottom: 0.3em solid var(--color1);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
- 
+  border-right: 0.3em solid var(--color1);
+  text-align: right;
 }
-
-.section-title h2 {
-  height: min-content;
-}
-
 
 .section-contents {
   width: 100%;
-  margin-right: 1em;
-  margin-left: 1em;
+  margin-right: 2em;
 }
 
 #subheader {
@@ -253,8 +237,6 @@ header:hover + main #subtitle2{
   min-width: 20%;
   text-align: center;
   padding-right: 2em;
-  display: flex;
-  align-items: center;
 }
 
 #personal-pic img {
@@ -266,15 +248,13 @@ header:hover + main #subtitle2{
 
 #my-work-cont .section-contents {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 0.5em;
   grid-template-areas:
-    "first"
-    "second"
-    "third"
-    "fourth"
-    "fifth";
+    "first first"
+    "second third"
+    "fourth fifth";
 
 }
 
@@ -377,39 +357,14 @@ header:hover + main #subtitle2{
   align-self: flex-end;
   text-align: center;
   margin-bottom: 1em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: minmax(30px, auto);
-  grid-gap: 0.5rem;
-  grid-template-areas: 
-    "cm-1 cm-3"
-    "cm-2 cm-4"
-  ;
   
 }
 
-#cm-1 {
-  grid-area: cm-1;
-}
-
-#cm-2 {
-  grid-area: cm-2;
-}
-
-#cm-3 {
-  grid-area: cm-3;
-}
-
-#cm-4 {
-  grid-area: cm-4;
-}
-
 #contact-me-cont .section-contents a{
-  height: min-content;
   color: var(--color1);
   font-size: 1.5em ;
-  padding: 0.2em;
-  margin: 0em 0.2em;
+  padding: 1em;
+  margin: 0em 1.5em;
 
 }
 
@@ -433,109 +388,3 @@ footer{
   }
 
   /* adjust scroll-padding-top for media queries*/
-
-  @media screen and (min-width: 768px) {
-
-html {
-  scroll-padding-top: 9em ;
-}
-
-
-    .section-title {
-
-      border-right: 0.3em solid var(--color1);
-      text-align: right;
-      border-bottom: none;
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
-    
-    .section-contents {
-      width: 100%;
-      margin-right: 2em;
-      margin-left: 0;
-    }
-    
-    main {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 5fr;
-      grid-auto-rows: minmax(100px, auto);
-      grid-gap: 1.5rem;
-      grid-template-areas:
-        "subheader subheader"
-        "about-me-title about-me-cont"
-        "my-work-title my-work-cont"
-        "contact-me-title contact-me-cont";
-    
-    }
-
-    header {
-      flex-direction: column-reverse;
-    }
-    nav {
-     
-      font-size: 1em;
-    }
-
-
-    #my-work-cont .section-contents {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: minmax(100px, auto);
-      grid-gap: 0.5em;
-      grid-template-areas:
-        "first first"
-        "second third"
-        "fourth fifth";
-    
-    }
-
-  }
-  
-  @media screen and (min-width: 992px) {
-
-    html {
-      scroll-padding-top: 8em ;
-    }
-
-
-
-    #contact-me-cont .section-contents {
-      align-self: flex-end;
-      text-align: center;
-      margin-bottom: 1em;
-      display: inline;
-      
-    }
-
-    #contact-me-cont .section-contents a{
-      padding: 0.4em;
-      margin: 0em 0.4em; 
-    }
-
-  }
-
-  @media screen and (min-width: 1320px) {
-
-    html {
-      scroll-padding-top: 7em ;
-    }
-
-
-      header {
-        flex-direction: row;
-      }
-      
-      #contact-me-cont .section-contents a{
-        padding: 1em;
-        margin: 0em 1.5em; 
-      }
-
-      nav {
-        align-self: flex-end;
-        margin-bottom: 0em;
-        margin-left: 1em;
-      }
-      
-  }
