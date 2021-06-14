@@ -38,11 +38,18 @@ html {
 /* offsets for sticky header when using in-page links */
 html {
   scroll-padding-top: 9em ;
+  width: 100%;
 }
 
 
 body {
   background-color: var(--color4);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+        "head"
+        "main"
+        "foot" ;
 }
 
 header {
@@ -53,6 +60,9 @@ header {
   background-color: var(--color1);
   width: 100%;
   top: 0;
+  grid-area: head;
+ 
+  
 }
 
 h1 {
@@ -87,16 +97,21 @@ nav {
   margin-left: 1em;
   display: flex;
   flex-direction: row;
-  font-size: 0.9em;
+  font-size: 1.3em;
 
 }
 
+#am-small {
+  display: none;
+}
 
+#cm-small {
+  display: none;
+}
 
 nav a{
   color: var(--color5);
   text-decoration: none;
-  font-size: 1.5em ;
   padding: 0em 1em 0em 1em;
   border-radius: 30px;
   transition: all 0.5s ease-out;
@@ -138,6 +153,7 @@ main {
     "my-work-cont"
     "contact-me-title"
     "contact-me-cont";
+  grid-area: main;
 
 }
 
@@ -290,8 +306,27 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   border: 0.3em solid var(--color-wb);
   padding: 0.5em;
   position: relative;
+  z-index: 1;
   
 }
+
+.work-card::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color1);
+  opacity: 0.3; 
+  transition: all 0.5s linear; 
+  z-index: -1; 
+}
+
+.work-card:hover::before {
+  opacity: 0;    
+}
+
 
 
 .card-info {
@@ -305,82 +340,61 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 
 
+
 #first-card {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card1.jpg');
+  background-image: url('../images/card1.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: first;
   min-height: 25em;
+  position: relative;
+  z-index: 1;
 }
+ 
 
-#first-card:hover {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card1.jpg');
-     background-size: cover;
-    
+
+.first-card:hover::before {
+  opacity: 0;    
 }
-
 
 #second-card {
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card2.jpg');
-  background-color: var(--color1);
+  background-image: url('../images/card2.jpg');
   background-size: cover;
   grid-area: second;
 }
 
 
-#second-card:hover {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card2.jpg');
-  background-size: cover;
-}
+
 
 
 #third-card {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card3.jpg');
+  background-image: url('../images/card3.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: third;
 }
 
-#third-card:hover {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card3.jpg');
-   background-size: cover;
-}
+
 
 
 #fourth-card {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card4.jpg');
+  background-image: url('../images/card4.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: fourth;
 }
 
-#fourth-card:hover {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card4.jpg');
-    background-size: cover;
-}
+
 
 
 #fifth-card {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card5.jpg');
+  background-image: url('../images/card5.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: fifth;
 }
 
-#fifth-card:hover {
-  background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card5.jpg');
-     background-size: cover;
-}
+
 
 
 #contact-me-cont .section-contents {
@@ -432,6 +446,8 @@ footer{
        var(--color2) 100%);
    
     transition: all 0.4s ease-out;
+    grid-area: foot;
+    
   }
 
   footer:hover{
@@ -442,6 +458,11 @@ footer{
       var(--color3) 100%);
   }
 
+
+  #test {
+    width: 100%;
+    background-color: orange;
+  }
   /* adjust scroll-padding-top for media queries*/
 
   @media screen and (min-width: 768px) {
@@ -485,7 +506,7 @@ html {
     }
     nav {
      
-      font-size: 1em;
+      font-size: 1.5em;
     }
 
 
@@ -509,7 +530,9 @@ html {
       scroll-padding-top: 8em ;
     }
 
-
+    #page-title h1 {
+      color: green;
+  }
 
     #contact-me-cont .section-contents {
       align-self: flex-end;
@@ -548,4 +571,31 @@ html {
         margin-left: 1em;
       }
       
+  }
+
+  /*added extra media query for super small (<500px)*/
+
+  @media screen and (max-width: 480px) {
+    #page-title h1 {
+      color: green;
+  }
+    nav a {
+      text-align: center;
+    }
+
+    #cm-big {
+      display: none;
+    }
+
+    #am-big{
+      display: none;
+    }
+
+    #cm-small{
+      display: inline;
+    }
+
+    #am-small{
+      display: inline;
+    }
   }
