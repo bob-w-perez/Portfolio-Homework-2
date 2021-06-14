@@ -324,7 +324,7 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 #second-card {
   background: linear-gradient(
-    rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('assets/images/card2.jpg');
+    rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card2.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: second;
@@ -333,14 +333,14 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 #second-card:hover {
   background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('assets/images/card2.jpg');
+     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card2.jpg');
   background-size: cover;
 }
 
 
 #third-card {
   background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('assets/images/card3.jpg');
+     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card3.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: third;
@@ -348,14 +348,14 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 #third-card:hover {
   background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('assets/images/card3.jpg');
+     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card3.jpg');
    background-size: cover;
 }
 
 
 #fourth-card {
   background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./assets/images/card4.jpg');
+     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card4.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: fourth;
@@ -363,14 +363,14 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 #fourth-card:hover {
   background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('./assets/images/card4.jpg');
+     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card4.jpg');
     background-size: cover;
 }
 
 
 #fifth-card {
   background: linear-gradient(
-     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./assets/images/card5.jpg');
+     rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/card5.jpg');
   background-color: var(--color1);
   background-size: cover;
   grid-area: fifth;
@@ -378,7 +378,7 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 #fifth-card:hover {
   background: linear-gradient(
-     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('./assets/images/card5.jpg');
+     rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('../images/card5.jpg');
      background-size: cover;
 }
 
