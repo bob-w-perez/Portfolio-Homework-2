@@ -4,7 +4,7 @@
 - This project was to make a Portfolio page from scratch with various features outlined in the homework instructions
 ## Installation
 
-go to [https://github.com/bob-w-perez/Portfolio-Homework-2](https://github.com/bob-w-perez/Portfolio-Homework-2) to view the files and read about the changes
+go to [https://github.com/bob-w-perez/Portfolio-Homework-2](https://github.com/bob-w-perez/Portfolio-Homework-2) to view the files. No installation required.
 
 ## Usage
 ![screenshot](https://github.com/bob-w-perez/Portfolio-Homework-2/blob/main/assets/images/screenshot.gif "Screenshot")
