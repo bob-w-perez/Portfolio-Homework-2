@@ -24,6 +24,9 @@ html {
 
   /* Main CSS starts here */
 
+
+/* set color scheme to variable so if one wants to change the colors for the whole
+page they can just change it here*/  
 :root {
   --color1: #075BAF;
   --color2: #2F8AE5;
@@ -31,7 +34,6 @@ html {
   --color4: #E5EEF8;
   --color5: #FFE4E4;
   --color-wb: #D7E6F0;
-/* add alternate color scheme*/
 }
 
 
@@ -41,7 +43,9 @@ html {
   width: 100%;
 }
 
-
+/*sets the body as a grid to align the header, main contents, and footer,
+used grid because other layout options had issues with cutting off the header and footer
+when the screen size was less than 500px*/
 body {
   background-color: var(--color4);
   display: grid;
@@ -52,6 +56,9 @@ body {
         "foot" ;
 }
 
+/* used 'position: sticky' to have a fixed header,
+sticky worked better than fixed at keeping other elements 
+from appearing behind the header on page load*/
 header {
   display: flex;
   flex-direction: column-reverse;
@@ -101,14 +108,18 @@ nav {
 
 }
 
+/* these are alternate nav links that don't have the word 'Me' in them
+they are not displayed unless the screen size is below 480px*/
+
 #am-small {
   display: none;
 }
-
 #cm-small {
   display: none;
 }
 
+/* used transition property and hover pseudo-class to give the nav links
+a bit of animation when they are used */
 nav a{
   color: var(--color5);
   text-decoration: none;
@@ -116,11 +127,11 @@ nav a{
   border-radius: 30px;
   transition: all 0.5s ease-out;
 }
-
 nav a:hover {
   background-color: var(--color2);
   box-shadow: 0em 0em 0.5em 0.1em var(--color5);
 }
+
 
 #page-title {
   background-color: var(--color2) ;
@@ -139,6 +150,10 @@ nav a:hover {
   color: var(--color5);
 }
 
+
+/* using 'display:grid' in the main element sets the main content layout
+below is just a single column for mobile first design.
+other layouts are at the bottom of this CSS page under media-queries */
 main {
   width: 100%;
   display: grid;
@@ -157,6 +172,9 @@ main {
 
 }
 
+/* sets each element to flex display so their contents align properly
+note: the whole page layout is made with grid display but the elements
+within that grid use flex to manage their contents*/
 main section {
   display: flex;
   flex-direction: row;
@@ -186,6 +204,8 @@ main section {
   margin-left: 1em;
 }
 
+
+/*set transition property for the subheader to enable some visual effects*/
 #subheader {
   width: 100%;
   min-height: 5rem;
@@ -210,6 +230,8 @@ main section {
   right: 3em;
 }
 
+/*this is the text in the subheader that is only visible after the transition,
+which is why its opacity is set to 0 */
 #subtitle2 {
   transition: all 0.8s ease-in;
   opacity: 0;
@@ -220,51 +242,44 @@ main section {
 
 }
 
+/*these hover pseudo-classes are set so when the mouse is over the header,
+the subheader animation is triggered */
 header:hover + main #subheader{
   box-shadow: inset 0em -1.8em 1em 5em var(--color4) ;
-
 }
-
 header:hover + main #subtitle{
   opacity: 0 ;
-
 }
-
 header:hover + main #subtitle2{
   opacity: 1 ;
-
 }
 
 
-
+/* these id declarations set the grid areas for the main layout*/
 #about-me-title {
   grid-area: about-me-title;
 }
-
 #about-me-cont {
   grid-area: about-me-cont;
 }
-
 #my-work-title{
   grid-area: my-work-title;
 }
-
 #my-work-cont{
   grid-area: my-work-cont;
 }
-
 #contact-me-title {
   grid-area: contact-me-title;
 }
-
 #contact-me-cont {
   grid-area: contact-me-cont;
 }
-
 #about-me .section-contents {
   margin-right: 0em;
 }
 
+
+/* set properties for profile picture in About Me section*/
 #personal-pic {
   min-width: 20%;
   text-align: center;
@@ -272,7 +287,6 @@ header:hover + main #subtitle2{
   display: flex;
   align-items: center;
 }
-
 #personal-pic img {
   width: 15em;
   height: 15em;
@@ -280,6 +294,9 @@ header:hover + main #subtitle2{
   border-radius: 50%;
 }
 
+
+/* sets up gird for the Work cards, single column is the default
+to conform to mobile first design, alternate layout defined in media queries below*/
 #my-work-cont .section-contents {
   display: grid;
   grid-template-columns: 1fr;
@@ -294,12 +311,6 @@ header:hover + main #subtitle2{
 
 }
 
-#my-work-cont .shade {
-  width: 100%;
-  height: 100%;
-  background-color: var(--color1);
-opacity: 0.5;  /* border: 1em solid var(--color1); */
-}
 
 .work-card {
   min-height: 15em;
@@ -310,6 +321,8 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   
 }
 
+/* this pseudo-element functions to provide a shaded (opacity = 0.5)
+cover over the work-card images*/
 .work-card::before {
   position: absolute;
   content: "";
@@ -322,20 +335,22 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   transition: all 0.4s linear; 
   z-index: -1; 
 }
-
+/* this pseudo-class makes the pseudo-element disappear to
+reveal the image underneath*/
 .work-card:hover::before {
   opacity: 0;    
 }
 
 
-
+/* using 'position: absolute' to position the title and info
+of the works cards to be in the lower left of their respective cards.
+Note: the parent element, '.work-card', has its position property as 'relative'*/
 .card-info {
   background-color: var(--color-wb);
   border-right: 0.1em solid var(--color1);
   border-top: 0.1em solid var(--color1);
   border-bottom: 0.1em solid var(--color1);
   padding: 0.1em 0.5em;
-  
   font-size: 2em;
   color: var(--color1);
   position: absolute;
@@ -348,49 +363,41 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
 
 
 
-
+/* the '#...-card' selectors below set the unique image for each work card*/
+/* the '#gird-wrap-...' selectors set the unique grid-area property to 
+organize the work cards in the #card-grid section*/
 #first-card {
   background-image: url('../images/card1.jpg');
   background-color: var(--color1);
   background-size: cover;
   min-height: 25em;
 }
- 
 #grid-wrap-1 {
   grid-area: first;
 }
-
 
 #second-card {
   background-image: url('../images/card2.jpg');
   background-size: cover;
 }
-
- 
 #grid-wrap-2 {
   grid-area: second;
 }
-
-
 
 #third-card {
   background-image: url('../images/card3.jpg');
   background-color: var(--color1);
   background-size: cover;
 }
- 
 #grid-wrap-3 {
   grid-area: third;
 }
-
-
 
 #fourth-card {
   background-image: url('../images/card4.jpg');
   background-color: var(--color1);
   background-size: cover;
-}
- 
+} 
 #grid-wrap-4 {
   grid-area: fourth;
 }
@@ -399,15 +406,13 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   background-image: url('../images/card5.jpg');
   background-color: var(--color1);
   background-size: cover;
-
-}
-
- 
+} 
 #grid-wrap-5 {
   grid-area: fifth;
 }
 
-
+/* sets up a gird for the 'Contact Me' links so it can be
+re-organized for screen size responsiveness*/
 #contact-me-cont .section-contents {
   align-self: flex-end;
   text-align: center;
@@ -420,21 +425,19 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
     "cm-1 cm-3"
     "cm-2 cm-4"
   ;
-  
 }
 
+/* these set the unique gird-area properties for the 
+individual 'Contact Me' elements*/
 #cm-1 {
   grid-area: cm-1;
 }
-
 #cm-2 {
   grid-area: cm-2;
 }
-
 #cm-3 {
   grid-area: cm-3;
 }
-
 #cm-4 {
   grid-area: cm-4;
 }
@@ -445,8 +448,8 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   font-size: 1.5em ;
   padding: 0.2em;
   margin: 0em 0.2em;
-
 }
+
 
 footer{
     width: 100%;
@@ -455,14 +458,11 @@ footer{
     background-image :linear-gradient(
        var(--color4) 0%,
        var(--color2) 100%);
-   
     transition: all 0.4s ease-out;
-    grid-area: foot;
-    
+    grid-area: foot;  
   }
-
+  /* gives the footer some animation effects*/
   footer:hover{
-    /* add secret buttons*/
     box-shadow: 0em 0em 1em 0.7em var(--color1) ;
     background-image :linear-gradient(
       var(--color3) 0%,
@@ -471,138 +471,147 @@ footer{
 
 
 
-  /* adjust scroll-padding-top for media queries*/
+/* media queries for resizing screen us min-width,
+following mobile first design*/
+@media screen and (min-width: 768px) {
 
-  @media screen and (min-width: 768px) {
+  html {
+    scroll-padding-top: 9em ;
+  }
 
-html {
-  scroll-padding-top: 9em ;
+  /* changes the main contents grid layout to a two-column
+  style with the titles for each section on the left instead 
+  of above their respective contents, except for the subheader
+  which spans both columns*/
+  main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1.5rem;
+    grid-template-areas:
+      "subheader subheader"
+      "about-me-title about-me-cont"
+      "my-work-title my-work-cont"
+      "contact-me-title contact-me-cont";
+
+  }
+
+  /* changes border and text alignment to fit the two-column layout*/
+  .section-title {
+    border-right: 0.3em solid var(--color1);
+    text-align: right;
+    border-bottom: none;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+      
+  .section-contents {
+    width: 100%;
+    margin-right: 2em;
+    margin-left: 0;
+  }
+
+  /* changes orientation of header nav links relative to the page title*/
+  header {
+    flex-direction: column-reverse;
+  }
+  nav {
+    font-size: 1.5em;
+  }
+
+  /* changes the work-cards grid layout from the mobile (single-column)
+  layout to a two-column layout where the first card spans both columns*/
+  #my-work-cont .section-contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 0.5em;
+    grid-template-areas:
+      "first first"
+      "second third"
+      "fourth fifth";
+  }
+
+}
+  
+@media screen and (min-width: 992px) {
+
+  /*adjusts scroll-padding as header becomes shorter due to screen resizing*/
+  html {
+    scroll-padding-top: 8em ;
+  }
+
+  #contact-me-cont .section-contents {
+    align-self: flex-end;
+    text-align: center;
+    margin-bottom: 1em;
+    display: inline;
+    
+  }
+
+  #contact-me-cont .section-contents a{
+    padding: 0.4em;
+    margin: 0em 0.4em; 
+  }
+
+}
+
+@media screen and (min-width: 1320px) {
+
+  /*adjusts scroll-padding as header becomes shorter due to screen resizing*/
+  html {
+    scroll-padding-top: 7em ;
+  }
+
+  header {
+    flex-direction: row;
+  }
+  
+  #contact-me-cont .section-contents a{
+    padding: 1em;
+    margin: 0em 1.5em; 
+  }
+
+  nav {
+    align-self: flex-end;
+    margin-bottom: 0em;
+    margin-left: 1em;
+  }
+    
 }
 
 
-    .section-title {
+/* added this at the end to fix some issues with display when
+screen size was smaller than 500px. this uses max-width since 
+it is for smaller screens than the default.*/
+/* Ideally this would have been the default, but since the issue 
+was not realized until later in the design process it was added
+like this to avoid restructuring everything else*/
+@media screen and (max-width: 480px) {
 
-      border-right: 0.3em solid var(--color1);
-      text-align: right;
-      border-bottom: none;
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
-    
-    .section-contents {
-      width: 100%;
-      margin-right: 2em;
-      margin-left: 0;
-    }
-    
-    main {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 5fr;
-      grid-auto-rows: minmax(100px, auto);
-      grid-gap: 1.5rem;
-      grid-template-areas:
-        "subheader subheader"
-        "about-me-title about-me-cont"
-        "my-work-title my-work-cont"
-        "contact-me-title contact-me-cont";
-    
-    }
-
-    header {
-      flex-direction: column-reverse;
-    }
-    nav {
-     
-      font-size: 1.5em;
-    }
-
-
-    #my-work-cont .section-contents {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: minmax(100px, auto);
-      grid-gap: 0.5em;
-      grid-template-areas:
-        "first first"
-        "second third"
-        "fourth fifth";
-    
-    }
-
-  }
-  
-  @media screen and (min-width: 992px) {
-
-    html {
-      scroll-padding-top: 8em ;
-    }
-
-
-    #contact-me-cont .section-contents {
-      align-self: flex-end;
-      text-align: center;
-      margin-bottom: 1em;
-      display: inline;
-      
-    }
-
-    #contact-me-cont .section-contents a{
-      padding: 0.4em;
-      margin: 0em 0.4em; 
-    }
-
-  }
-
-  @media screen and (min-width: 1320px) {
-
-    html {
-      scroll-padding-top: 7em ;
-    }
-
-
-      header {
-        flex-direction: row;
-      }
-      
-      #contact-me-cont .section-contents a{
-        padding: 1em;
-        margin: 0em 1.5em; 
-      }
-
-      nav {
-        align-self: flex-end;
-        margin-bottom: 0em;
-        margin-left: 1em;
-      }
-      
-  }
-
-  /*added extra media query for super small (<500px)*/
-
-  @media screen and (max-width: 480px) {
-  
-
+  /* adjust scroll padding for really tall header resulting from narrow screen*/
   html {
     scroll-padding-top: 11em ;
   }
-    nav a {
-      text-align: center;
-    }
-
-    #cm-big {
-      display: none;
-    }
-
-    #am-big{
-      display: none;
-    }
-
-    #cm-small{
-      display: inline;
-    }
-
-    #am-small{
-      display: inline;
-    }
+  nav a {
+    text-align: center;
   }
+
+  /*hides the nav links in the header that include 'Me' in there display
+  to make them more compact to fit the small screen better*/
+  #cm-big {
+    display: none;
+  }
+  #am-big{
+    display: none;
+  }
+
+  /* makes visible the alternative nav links that do not have 'Me' included*/
+  #cm-small{
+    display: inline;
+  }
+  #am-small{
+    display: inline;
+  }
+}
