@@ -353,22 +353,23 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   background-image: url('../images/card1.jpg');
   background-color: var(--color1);
   background-size: cover;
-  grid-area: first;
   min-height: 25em;
-  position: relative;
-  z-index: 1;
 }
  
-
+#grid-wrap-1 {
+  grid-area: first;
+}
 
 
 #second-card {
   background-image: url('../images/card2.jpg');
   background-size: cover;
-  grid-area: second;
 }
 
-
+ 
+#grid-wrap-2 {
+  grid-area: second;
+}
 
 
 
@@ -376,9 +377,11 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   background-image: url('../images/card3.jpg');
   background-color: var(--color1);
   background-size: cover;
+}
+ 
+#grid-wrap-3 {
   grid-area: third;
 }
-
 
 
 
@@ -386,20 +389,23 @@ opacity: 0.5;  /* border: 1em solid var(--color1); */
   background-image: url('../images/card4.jpg');
   background-color: var(--color1);
   background-size: cover;
+}
+ 
+#grid-wrap-4 {
   grid-area: fourth;
 }
-
-
-
 
 #fifth-card {
   background-image: url('../images/card5.jpg');
   background-color: var(--color1);
   background-size: cover;
-  grid-area: fifth;
+
 }
 
-
+ 
+#grid-wrap-5 {
+  grid-area: fifth;
+}
 
 
 #contact-me-cont .section-contents {
