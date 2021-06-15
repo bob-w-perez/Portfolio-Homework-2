@@ -7,7 +7,7 @@
 go to [https://github.com/bob-w-perez/Code-Refactor-Homework-01](https://github.com/bob-w-perez/Portfolio-Homework-2) to view the files and read about the changes
 
 ## Usage
-![screenshot](https://github.com/bob-w-perez/Portfolio-Homework-2/blob/main/assets/images/screenshot.jpg "Screenshot")
+![screenshot](https://github.com/bob-w-perez/Portfolio-Homework-2/blob/main/assets/images/screenshot.gif "Screenshot")
 
 go to [https://bob-w-perez.github.io/Code-Refactor-Homework-01/](https://bob-w-perez.github.io/Portfolio-Homework-2/) for the live webpage
 
